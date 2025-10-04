@@ -49,7 +49,8 @@ class PeopleSearch:
             users.append(User(username, session=self.session, load=False))
 
         self.results = users
-        self.total_results = int(result_count.string.split()[0])
+        total_str = result_count.string.split()[0].replace(",", "")
+        self.total_results = int(total_str)
         self.pages = ceil(self.total_results / 20)
 
 
