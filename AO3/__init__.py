@@ -1,6 +1,7 @@
 from . import extra, utils
 from .chapters import Chapter
 from .comments import Comment
+from .peoplesearch import PeopleSearch
 from .search import Search
 from .series import Series
 from .session import GuestSession, Session
