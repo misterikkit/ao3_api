@@ -9,7 +9,13 @@ from .users import User
 
 
 class PeopleSearch:
-    def __init__(self, all_fields="", names="", fandoms="", page=1, session=None):
+    def __init__(
+        self,
+        all_fields="",
+        names="",
+        fandoms="",
+        page=1,
+        session=None):
 
         self.all_fields = all_fields
         self.names = names
@@ -27,13 +33,13 @@ class PeopleSearch:
         """Sends a request to the AO3 website with the defined search parameters, and updates all info.
         This function is threadable.
         """
+
         soup = search(
             self.all_fields, self.names, self.fandoms, self.page, self.session
         )
 
         results = soup.find("ol", {"class": ("pseud", "index", "group")})
         result_count = soup.find("p", string=re.compile(r"\d+ Found"))
-
         if results is None or result_count is None:
             self.results = []
             self.total_results = 0
@@ -59,8 +65,7 @@ def search(
     names="",
     fandoms="",
     page=1,
-    session=None,
-):
+    session=None):
     """Returns the results page for the people search as a Soup object
     Args:
         all_fields (str, optional): Generic search. Defaults to "".
