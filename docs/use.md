@@ -226,7 +226,7 @@ for result in people.results:
 <User [crumpsy]>
 ```
 
-You can then use the User objects to load one of the users. To get more then the first 20 user, change the page number using 
+You can then use the User objects to load one of the users. To get more then the first 20 users, change the page number using 
 ```py3
 people.page = 2
 people.update()
