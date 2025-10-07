@@ -183,9 +183,53 @@ for result in search.results:
 <Work [My only wish]>
 ```
 
-You can then use the workid to load one of the works you searched for. To get more then the first 20 works, change the page number using 
-```python
+You can then use the Work objects to load one of the works you searched for. To get more then the first 20 works, change the page number using 
+```py3
 search.page = 2
+search.update()
+```
+
+## People Search
+
+To search for people, use the `AO3.PeopleSearch` class.
+
+```py3
+import AO3
+people = AO3.PeopleSearch(fandoms="Supernatural (TV 2005)")
+people.update()
+print(people.total_results)
+for result in people.results:
+  print(result)
+```
+
+```
+46509
+<User [thisismypseudonym]>
+<User [honeycas]>
+<User [Lizaredlion]>
+<User [skullsandravens]>
+<User [blurry_dreams]>
+<User [heythere_itsdeanwinchester]>
+<User [LeWriter241]>
+<User [MissSultanofswing]>
+<User [Rayra]>
+<User [Alaida]>
+<User [Defiler_Wyrm]>
+<User [Mr_Mackwo]>
+<User [orphan_account]>
+<User [MadnessReg]>
+<User [mooseysammy]>
+<User [IAmNoMant]>
+<User [Bookluvr3]>
+<User [destielxxdreaming]>
+<User [orphan_account]>
+<User [crumpsy]>
+```
+
+You can then use the User objects to load one of the users. To get more then the first 20 user, change the page number using 
+```py3
+people.page = 2
+people.update()
 ```
 
 ## Session
